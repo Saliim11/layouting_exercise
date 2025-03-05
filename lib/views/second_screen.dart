@@ -63,7 +63,11 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
               children: [
                 Expanded(
                   child: GestureDetector(
-                    onTap: () => Navigator.pop(context),
+                    onTap: () {
+                      // _timer!.cancel();
+                      controllers.stop();
+                      Navigator.pop(context);
+                    } ,
                     child: Row(
                       children: [
                         Icon(
