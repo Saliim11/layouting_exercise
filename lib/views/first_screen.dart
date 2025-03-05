@@ -95,9 +95,7 @@ class _FirstScreenState extends State<FirstScreen> {
                                 borderRadius: BorderRadius.circular(20)
                               )
                             ),
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen(),));
-                            },
+                            onPressed: () => Navigator.pushNamed(context, "/second"),
                             child: Text(
                               "Start",
                               style: TextStyle(
