@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:layouting_exercise/service/prefs_handler.dart';
+import 'package:layouting_exercise/utils/image.dart';
 import 'package:layouting_exercise/views/second_screen.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -9,6 +11,8 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
+
+  final TextEditingController _namaCont = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +22,7 @@ class _FirstScreenState extends State<FirstScreen> {
           SizedBox(
             width: double.infinity,
             height: double.infinity,
-            child: Image.asset("assets/loginBackg.png", fit: BoxFit.cover,)),
+            child: Image.asset(Gambar.appBackg, fit: BoxFit.cover,)),
 
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -31,7 +35,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       child: CircleAvatar(
                         maxRadius: 75,
                         minRadius: 75,
-                        backgroundImage: AssetImage("assets/appLogo.png"),
+                        backgroundImage: AssetImage(Gambar.appLogo),
                       ),
                     ),
                   ),
@@ -52,6 +56,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   SizedBox(height: 10,),
 
                   TextField(
+                    controller: _namaCont,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12
@@ -95,7 +100,10 @@ class _FirstScreenState extends State<FirstScreen> {
                                 borderRadius: BorderRadius.circular(20)
                               )
                             ),
-                            onPressed: () => Navigator.pushNamed(context, "/second"),
+                            onPressed: () {
+                              PreferenceHandler.saveId(_namaCont.text);
+                              Navigator.pushNamed(context, "/second");
+                            },
                             child: Text(
                               "Start",
                               style: TextStyle(

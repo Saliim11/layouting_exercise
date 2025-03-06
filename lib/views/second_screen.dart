@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:layouting_exercise/service/prefs_handler.dart';
 import 'package:layouting_exercise/utils/color.dart';
 
 class SecondScreen extends StatefulWidget {
@@ -237,7 +238,9 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
                         )
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen(),));
+                        PreferenceHandler.removeId();
+                        controllers.stop();
+                        Navigator.pop(context);
                       },
                       child: Text(
                         "Next",

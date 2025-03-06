@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:layouting_exercise/views/first_screen.dart';
 import 'package:layouting_exercise/views/second_screen.dart';
+import 'package:layouting_exercise/views/splash/splash_screen.dart';
+import 'package:layouting_exercise/views/splash/welcome/welcoming_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,10 +20,12 @@ class MyApp extends StatelessWidget {
         fontFamily: 'baloo_2',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: '/',
+      initialRoute: '/splash',
       routes: {
+        '/splash' : (context) => SplashScreen(),
         '/' : (context) => FirstScreen(),
         '/second' : (context) => SecondScreen(),
+        '/welcome' : (context) => WelcomingPage(),
       },
     );
   }
