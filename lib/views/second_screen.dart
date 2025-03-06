@@ -27,7 +27,9 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
         if (_seconds == 0) {
           setState(() {
             timer.cancel();
+            controllers.stop();
           });
+          Navigator.pop(context);
         }else {
           setState(() {
             _seconds--;
